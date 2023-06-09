@@ -5,7 +5,8 @@ const {
     comienzaCon,
     hoyEs,
     mesActual,
-    anioActual
+    anioActual,
+    dateComplet
 } = require('../01-homeworks')
 
 describe('totalChar', ()=>{
@@ -51,5 +52,9 @@ describe('Object Date', () => {
         
     it('Deberia devolver el año actual', ()=>{
         expect(anioActual()).toBe(now.getFullYear())
+        })
+
+    it('Deberia devolver objeto date completo.', ()=>{
+        expect(dateComplet()).toBe(now)
         })
 })

@@ -48,10 +48,9 @@ function anioActual(){
 }
 
 function dateComplet(){
-    //Debes retornar el mes actual actual, ayudandote con el Objeto Date (En caso de no conocerlo averigua)
-    // Ejemplo -> 8/6/2023 -> deberia retornar solo 6
-    // Tu codigo:
-
+    //Debes retornar el date completo. Día, mes, día del mes, año, hora acutal y zona horaria
+    //Tu codigo:
+    
 }
 
 module.exports = {
@@ -62,4 +61,5 @@ module.exports = {
     hoyEs,
     mesActual,
     anioActual,
+    dateComplet
 }
