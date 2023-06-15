@@ -7,7 +7,12 @@ const {
     verificarContrasena,
     verificarPalabra,
     calcularDescuento,
-    obtenerMayor
+    obtenerMayor,
+    calcularPrecioEnvio,
+    determinarTipoTriangulo,
+    calcularDescuentoExtra,
+    calcularCalificacionFinal,
+    calcularDescuentoCompra
 } = require('../02-homeworks')
 
 describe('imprimirMayor', () => {
@@ -96,5 +101,55 @@ describe('obtenerMayor', () => {
         expect(obtenerMayor(8, 1 , 99)).toBe(99)
         expect(obtenerMayor(1, 2, 3)).toBe(3)
         expect(obtenerMayor(13, 15, 11)).toBe(15)
+    })
+})
+
+describe('calcularPrecioEnvio', () => {
+    it('', () =>{
+        expect(calcularPrecioEnvio(1, 5, 10)).toBe(10)
+        expect(calcularPrecioEnvio(5, 1, 3)).toBe(5)
+        expect(calcularPrecioEnvio(8, 1 , 99)).toBe(99)
+        expect(calcularPrecioEnvio(1, 2, 3)).toBe(3)
+        expect(calcularPrecioEnvio(13, 15, 11)).toBe(15)
+    })
+})
+
+describe('determinarTipoTriangulo', () => {
+    it('', () =>{
+        expect(determinarTipoTriangulo(1, 5, 10)).toBe(10)
+        expect(determinarTipoTriangulo(5, 1, 3)).toBe(5)
+        expect(determinarTipoTriangulo(8, 1 , 99)).toBe(99)
+        expect(determinarTipoTriangulo(1, 2, 3)).toBe(3)
+        expect(determinarTipoTriangulo(13, 15, 11)).toBe(15)
+    })
+})
+
+describe('calcularDescuentoExtra', () => {
+    it('', () =>{
+        expect(calcularDescuentoExtra(1, 5, 10)).toBe(10)
+        expect(calcularDescuentoExtra(5, 1, 3)).toBe(5)
+        expect(calcularDescuentoExtra(8, 1 , 99)).toBe(99)
+        expect(calcularDescuentoExtra(1, 2, 3)).toBe(3)
+        expect(calcularDescuentoExtra(13, 15, 11)).toBe(15)
+    })
+})
+
+describe('calcularCalificacionFinal', () => {
+    it('', () =>{
+        expect(calcularCalificacionFinal(1, 5, 10)).toBe(10)
+        expect(calcularCalificacionFinal(5, 1, 3)).toBe(5)
+        expect(calcularCalificacionFinal(8, 1 , 99)).toBe(99)
+        expect(calcularCalificacionFinal(1, 2, 3)).toBe(3)
+        expect(calcularCalificacionFinal(13, 15, 11)).toBe(15)
+    })
+})
+
+describe('calcularDescuentoCompra', () => {
+    it('', () =>{
+        expect(calcularDescuentoCompra(1, 5, 10)).toBe(10)
+        expect(calcularDescuentoCompra(5, 1, 3)).toBe(5)
+        expect(calcularDescuentoCompra(8, 1 , 99)).toBe(99)
+        expect(calcularDescuentoCompra(1, 2, 3)).toBe(3)
+        expect(calcularDescuentoCompra(13, 15, 11)).toBe(15)
     })
 })

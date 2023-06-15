@@ -126,29 +126,124 @@ function obtenerMayor(a, b, c) {
   return mayor;
 }
 
-function calcularIndiceMasaCorporal(peso, altura) {
-  // Consigna: Escribe una función que tome como argumentos el peso (en kilogramos) y la altura (en metros) de una persona y calcule su índice de masa corporal (IMC).
-  // Utiliza la fórmula: IMC = peso / (altura * altura).
-  // Luego, devuelve un mensaje según el valor del IMC:
-  // - Si el IMC es menor a 18.5, devuelve "Bajo peso".
-  // - Si el IMC está entre 18.5 y 24.9, devuelve "Peso normal".
-  // - Si el IMC está entre 25 y 29.9, devuelve "Sobrepeso".
-  // - Si el IMC es mayor o igual a 30, devuelve "Obesidad".
+function calcularPrecioEnvio(peso, distancia) {
+  // Consigna: Escribe una función que tome como argumentos el peso de un paquete (en kilogramos) y la distancia a la que se enviará (en kilómetros) y calcule el precio de envío.
+  // Las tarifas son las siguientes:
+  // - Si el peso es menor o igual a 1kg y la distancia es menor o igual a 100km, el precio de envío es $10.
+  // - Si el peso es mayor a 1kg y menor o igual a 5kg y la distancia es mayor a 100km, el precio de envío es $20.
+  // - Si el peso es mayor a 5kg o la distancia es mayor a 500km, el precio de envío es $30.
+  // Devuelve el precio de envío calculado.
 
-  var imc = peso / (altura * altura);
+  var precioEnvio;
 
-  if (imc < 18.5) {
-    return "Bajo peso";
-  } else if (imc >= 18.5 && imc <= 24.9) {
-    return "Peso normal";
-  } else if (imc >= 25 && imc <= 29.9) {
-    return "Sobrepeso";
+  if (peso <= 1 && distancia <= 100) {
+    precioEnvio = 10;
+  } else if (peso > 1 && peso <= 5 && distancia > 100) {
+    precioEnvio = 20;
+  } else if (peso > 5 || distancia > 500) {
+    precioEnvio = 30;
+  }
+
+  return precioEnvio;
+}
+
+function determinarTipoTriangulo(ladoA, ladoB, ladoC) {
+  // La funcion recibe los siguientes argumentos los tres lados de un triángulo (ladoA, ladoB, ladoC) y determine su tipo.
+  // Devuelve un mensaje indicando si el triángulo es equilátero, isósceles o escaleno.
+  // Un triángulo es equilátero si todos sus lados son iguales, isósceles si dos de sus lados son iguales y escaleno si todos sus lados son diferentes.
+
+  if (ladoA === ladoB && ladoB === ladoC) {
+    return "El triángulo es equilátero";
+  } else if (ladoA === ladoB || ladoA === ladoC || ladoB === ladoC) {
+    return "El triángulo es isósceles";
   } else {
-    return "Obesidad";
+    return "El triángulo es escaleno";
   }
 }
 
-  
+function calcularDescuentoExtra(precio, categoria, clientePremium) {
+  // La funcion recibe los siguientes argumentos el precio, la categoría y un valor booleano indicando si el cliente es premium.
+  // La función debe calcular el descuento correspondiente al precio según la categoría y si el cliente es premium.
+  // Si la categoría es "A" el descuento base es 20% y si es premium se aplica un descuento del 10% adicional.
+  // Si la categoría es "B" el descuento base es 15% y si es premium se aplica un descuento del 5% adicional.
+  // La función debe devolver el monto total del producto después de aplicar los descuentos.
+
+  var descuento = 0;
+
+  if (categoria === "A") {
+    descuento = 0.2; // 20% de descuento
+    if (clientePremium) {
+      descuento += 0.1; // 10% de descuento adicional
+    }
+  } else if (categoria === "B") {
+    descuento = 0.15; // 15% de descuento
+    if (clientePremium) {
+      descuento += 0.05; // 5% de descuento adicional
+    }
+  }
+
+  var precioDescuento = precio - precio * descuento;
+  return precioDescuento;
+}
+
+function calcularCalificacionFinal(examen1, examen2, proyecto, asistencia) {
+  // La funcion recibe los siguientes argumentos las calificaciones de dos exámenes, un proyecto y el porcentaje de asistencia de un estudiante.
+  // La función debe calcular la calificación final del estudiante según las siguientes reglas:
+  // - Si el estudiante tiene una asistencia menor al 80%, la calificación final es "Reprobado".
+  // - Si el estudiante tiene una asistencia igual o mayor al 80%, se calcula el promedio de los exámenes y se le suma la calificación del proyecto.
+  // - Si el promedio de los exámenes más la calificación del proyecto es mayor o igual a 90, la calificación final es "A".
+  // - Si el promedio está entre 80 y 89, la calificación final es "B".
+  // - Si el promedio está entre 70 y 79, la calificación final es "C".
+  // - Si el promedio está entre 60 y 69, la calificación final es "D".
+  // - Si el promedio es menor a 60, la calificación final es "F".
+  // La función debe devolver la calificación final.
+  // Tu codigo:
+
+  if (asistencia < 80) {
+    return "Reprobado";
+  } else {
+    var promedioExamenes = (examen1 + examen2) / 2;
+    var calificacionFinal = promedioExamenes + proyecto;
+
+    if (calificacionFinal >= 90) {
+      return "A";
+    } else if (calificacionFinal >= 80 && calificacionFinal <= 89) {
+      return "B";
+    } else if (calificacionFinal >= 70 && calificacionFinal <= 79) {
+      return "C";
+    } else if (calificacionFinal >= 60 && calificacionFinal <= 69) {
+      return "D";
+    } else {
+      return "F";
+    }
+  }
+}
+
+function calcularDescuentoCompra(totalCompra, cuponDescuento, clientePremium) {
+  // La funcion toma los siguientes argumentos: el total de la compra, un cupón de descuento y un valor booleano indicando si el cliente es premium.
+  // La función debe calcular el descuento correspondiente a la compra según las siguientes reglas:
+  // - Si el cliente es premium, se aplica un descuento del 25%.
+  // - Si el cliente no es premium y tiene un cupón de descuento válido = "DESC10", se aplica un descuento del 10%.
+  // - Si el cliente no es premium y tiene un cupón de descuento válido = "DESC5", se aplica un descuento del 5%.
+  // - Si el cliente no es premium y no tiene un cupón de descuento válido, no se aplica ningún descuento.
+  // La función debe devolver el monto total de la compra después de aplicar el descuento.
+  // Tu Codigo:
+  var descuento = 0;
+
+  if (clientePremium) {
+    descuento = 0.25; // 20% de descuento para clientes premium
+  } else {
+    if (cuponDescuento === "DESC10") {
+      descuento = 0.1; // 10% de descuento con cupón válido
+    }else if(cuponDescuento === 'DESC5'){
+      descuento = 0.05;
+    }
+  }
+
+  var precioDescuento = totalCompra - totalCompra * descuento;
+  return precioDescuento;
+}
+
 
 module.exports = {
     imprimirMayor,
@@ -159,5 +254,10 @@ module.exports = {
     verificarContrasena,
     verificarPalabra,
     calcularDescuento,
-    obtenerMayor
+    obtenerMayor,
+    calcularPrecioEnvio,
+    determinarTipoTriangulo,
+    calcularDescuentoExtra,
+    calcularCalificacionFinal,
+    calcularDescuentoCompra
 }
