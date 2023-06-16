@@ -105,51 +105,48 @@ describe('obtenerMayor', () => {
 })
 
 describe('calcularPrecioEnvio', () => {
-    it('', () =>{
-        expect(calcularPrecioEnvio(1, 5, 10)).toBe(10)
-        expect(calcularPrecioEnvio(5, 1, 3)).toBe(5)
-        expect(calcularPrecioEnvio(8, 1 , 99)).toBe(99)
-        expect(calcularPrecioEnvio(1, 2, 3)).toBe(3)
-        expect(calcularPrecioEnvio(13, 15, 11)).toBe(15)
+    it('Deberia devovler el precio total con descuento, según corresponda', () =>{
+        expect(calcularPrecioEnvio(1, 100)).toBe(10)
+        expect(calcularPrecioEnvio(3, 150)).toBe(20)
+        expect(calcularPrecioEnvio(6, 100)).toBe(30)
     })
 })
 
 describe('determinarTipoTriangulo', () => {
-    it('', () =>{
-        expect(determinarTipoTriangulo(1, 5, 10)).toBe(10)
-        expect(determinarTipoTriangulo(5, 1, 3)).toBe(5)
-        expect(determinarTipoTriangulo(8, 1 , 99)).toBe(99)
-        expect(determinarTipoTriangulo(1, 2, 3)).toBe(3)
-        expect(determinarTipoTriangulo(13, 15, 11)).toBe(15)
+    it('Deberia decir el tipo de triangulo que es', () =>{
+        expect(determinarTipoTriangulo(2, 2, 2)).toBe('El triángulo es equilátero')
+        expect(determinarTipoTriangulo(5, 5, 3)).toBe('El triángulo es isósceles')
+        expect(determinarTipoTriangulo(8, 8 , 8)).toBe('El triángulo es equilátero')
+        expect(determinarTipoTriangulo(1, 2, 3)).toBe('El triángulo es escaleno')
+        expect(determinarTipoTriangulo(13, 15, 15)).toBe('El triángulo es isósceles')
     })
 })
 
 describe('calcularDescuentoExtra', () => {
-    it('', () =>{
-        expect(calcularDescuentoExtra(1, 5, 10)).toBe(10)
-        expect(calcularDescuentoExtra(5, 1, 3)).toBe(5)
-        expect(calcularDescuentoExtra(8, 1 , 99)).toBe(99)
-        expect(calcularDescuentoExtra(1, 2, 3)).toBe(3)
-        expect(calcularDescuentoExtra(13, 15, 11)).toBe(15)
+    it('Deberia calcular y devolver el total con el descuento correspondiente', () =>{
+        expect(calcularDescuentoExtra(1000, 'A', true)).toBe(700)
+        expect(calcularDescuentoExtra(1000, 'B', true)).toBe(800)
+        expect(calcularDescuentoExtra(1500, 'A', false)).toBe(1200)
+        expect(calcularDescuentoExtra(3800, 'B', false)).toBe(3230)
     })
 })
 
 describe('calcularCalificacionFinal', () => {
-    it('', () =>{
-        expect(calcularCalificacionFinal(1, 5, 10)).toBe(10)
-        expect(calcularCalificacionFinal(5, 1, 3)).toBe(5)
-        expect(calcularCalificacionFinal(8, 1 , 99)).toBe(99)
-        expect(calcularCalificacionFinal(1, 2, 3)).toBe(3)
-        expect(calcularCalificacionFinal(13, 15, 11)).toBe(15)
+    it('Deberia devolver la clasificacion final correspondiente', () =>{
+        expect(calcularCalificacionFinal(60, 60, 60, 80)).toBe('A')
+        expect(calcularCalificacionFinal(100, 100, 100, 60)).toBe('Reprobado')
+        expect(calcularCalificacionFinal(20, 45, 30, 95)).toBe('D')
+        expect(calcularCalificacionFinal(15, 35, 30, 85)).toBe('F')
+        expect(calcularCalificacionFinal(40, 60, 35, 80)).toBe('B')
     })
 })
 
 describe('calcularDescuentoCompra', () => {
-    it('', () =>{
-        expect(calcularDescuentoCompra(1, 5, 10)).toBe(10)
-        expect(calcularDescuentoCompra(5, 1, 3)).toBe(5)
-        expect(calcularDescuentoCompra(8, 1 , 99)).toBe(99)
-        expect(calcularDescuentoCompra(1, 2, 3)).toBe(3)
-        expect(calcularDescuentoCompra(13, 15, 11)).toBe(15)
+    it('Deberia devolver total segun el descuento aplicado', () =>{
+        expect(calcularDescuentoCompra(1000, '', true)).toBe(750)
+        expect(calcularDescuentoCompra(2800, 'DESC5', false)).toBe(2660)
+        expect(calcularDescuentoCompra(800, 'DESC10', false)).toBe(720)
+        expect(calcularDescuentoCompra(3800, '', true)).toBe(2850)
+        expect(calcularDescuentoCompra(10000, 'DESC10', false)).toBe(9000)
     })
 })

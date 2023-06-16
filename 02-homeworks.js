@@ -127,7 +127,7 @@ function obtenerMayor(a, b, c) {
 }
 
 function calcularPrecioEnvio(peso, distancia) {
-  // Consigna: Escribe una función que tome como argumentos el peso de un paquete (en kilogramos) y la distancia a la que se enviará (en kilómetros) y calcule el precio de envío.
+  // La funcion recibe los siguientes argumentos el peso de un paquete (en kilogramos) y la distancia a la que se enviará (en kilómetros) y calcule el precio de envío.
   // Las tarifas son las siguientes:
   // - Si el peso es menor o igual a 1kg y la distancia es menor o igual a 100km, el precio de envío es $10.
   // - Si el peso es mayor a 1kg y menor o igual a 5kg y la distancia es mayor a 100km, el precio de envío es $20.
